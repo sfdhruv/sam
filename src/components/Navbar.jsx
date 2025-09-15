@@ -183,7 +183,7 @@ function Navigation({ onSearch, searchQuery: externalSearchQuery }) {
                 </NavLink>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                <NavLink to="/" className={getNavLinkClass}>Home</NavLink>
+                <NavLink to="/home" className={getNavLinkClass}>Home</NavLink>
                 <NavLink to="/products" className={getNavLinkClass}>Products</NavLink>
                 <NavLink to="/about" className={getNavLinkClass}>About</NavLink>
                 <NavLink to="/contact" className={getNavLinkClass}>Contact</NavLink>

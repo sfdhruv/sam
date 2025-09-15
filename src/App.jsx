@@ -11,8 +11,13 @@ function App() {
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {
-      setUser(JSON.parse(userData));
-      setIsAuthenticated(true);
+      try {
+        setUser(JSON.parse(userData));
+        setIsAuthenticated(true);
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+        localStorage.removeItem("user"); // Clean up invalid data
+      }
     }
   }, []);
 
@@ -26,6 +31,8 @@ function App() {
     setIsAuthenticated(false);
     setUser(null);
     localStorage.removeItem("user");
+    // You might also want to clear other user-related data
+    localStorage.removeItem("cart");
   };
 
   return (
@@ -39,9 +46,14 @@ function App() {
         />
 
         <main className="flex-grow">
-          <AppRoutes isAuthenticated={isAuthenticated} />
+          <AppRoutes 
+            isAuthenticated={isAuthenticated} 
+            user={user}
+            onLogin={handleLogin}
+          />
         </main>
 
+        {/* Footer only shows when user is not authenticated */}
         {!isAuthenticated && <Footer />}
       </div>
     </Router>

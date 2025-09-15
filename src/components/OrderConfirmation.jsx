@@ -222,7 +222,7 @@ const OrderConfirmation = () => {
                 Print Receipt
               </button>
               <button 
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/home")}
                 className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors"
               >
                 Back to Home

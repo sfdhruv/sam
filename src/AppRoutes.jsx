@@ -1,7 +1,5 @@
-// src/AppRoutes.jsx
-
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./components/HomePage";
 import Product from "./components/Product";
@@ -14,6 +12,7 @@ import Contact from "./components/ContactPage";
 const AppRoutes = ({ isAuthenticated }) => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="/home" element={<Home isAuthenticated={isAuthenticated} />} />
       <Route path="/products" element={<Product />} />
       <Route path="/cart" element={<CartPage />} />
@@ -21,6 +20,7 @@ const AppRoutes = ({ isAuthenticated }) => {
       <Route path="/order-confirmation" element={<OrderConfirmation />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
   );
 };
