@@ -14,7 +14,7 @@ import Contact from "./components/ContactPage";
 const AppRoutes = ({ isAuthenticated }) => {
   return (
     <Routes>
-      <Route path="/" element={<Home isAuthenticated={isAuthenticated} />} />
+      <Route path="/home" element={<Home isAuthenticated={isAuthenticated} />} />
       <Route path="/products" element={<Product />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
